@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Blog</title>
+</head>
+<body>
+<h1>Create Blog</h1>
+<p>
+<!--  <a href="/customers">Customer list</a>-->
+</p>
+<!--<th:block th:if="${message}">-->
+<!--  <p th:text="${message}"></p>-->
+<!--</th:block>-->
+<form action="/save"  method="post" enctype="multipart/form-data">
+  <table>
+    <tr>
+      <td>Title:</td>
+      <td><input type="text" name="title"/></td>
+    </tr>
+    <tr>
+      <td>Img:</td>
+      <td><input type="file" name="fileImg"/></td>
+    </tr>
+    <tr>
+      <select name="category">
+      <option th:each="c:${categories}" th:value="${c.getId()}" th:text="${c.getName()}"></option>
+      </select>
+    </tr>
+    <tr>
+      <td>Content:</td>
+      <td><input type="text" name="content"/></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Create Blog"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
